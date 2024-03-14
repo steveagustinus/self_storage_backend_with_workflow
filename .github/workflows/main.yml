@@ -1,0 +1,20 @@
+name: Notify pull request
+
+on:
+  pull_request:
+
+jobs:
+  notify:
+    environment: secrets
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./
+        with:
+          access_token: ${{ secrets.LINE_ACCESS_TOKEN }}
+          message: |
+            Pull request is ${{ github.event.action }}.
+            #${{ github.event.number }}: ${{ github.event.pull_request.title }}
+            ${{ github.event.pull_request.html_url }}
