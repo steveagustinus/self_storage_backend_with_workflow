@@ -50,6 +50,10 @@ app.post('/api/files/new-feature', async (req, res) =>{
     console.log("not implemented yet")
     // not implemented yet
 });
+app.post('/api/files/new-feature-2', async (req, res) =>{
+    console.log("not implemented yet")
+    // not implemented yet
+});
 app.post('/api/files/download', async (req, res) => {
     try {
         if (
